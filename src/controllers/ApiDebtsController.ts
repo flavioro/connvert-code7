@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 
 import { OK } from '../tools/httpStatus'
 import apiUsers from '../services/ApiUsersService'
+import debtsService from '../services/DebtsService'
 
 class UserController {
 
@@ -10,7 +11,7 @@ class UserController {
 
     for (const client of usersApi) {
       client.valueTotal = 0
-      const debts = await apiUsers.getDebtsByUsersAll(client.id)
+      const debts = await debtsService.getDebtsByUsersAll(client.id)
       const values = debts.map(item => item.value)
 
       if (values.length > 0) {
@@ -29,7 +30,7 @@ class UserController {
 
   public async getDebtsByUser (request: Request, response: Response): Promise<Response> {
     const pagination = { limit: request.query.limit || 5, page: request.query.page || 1 }
-    const debtUser = await apiUsers.getDebtsByUser(request.params.id, pagination)
+    const debtUser = await debtsService.getDebtsByUser(request.params.id, pagination)
     
     return response.status(OK).json(debtUser)
   }
