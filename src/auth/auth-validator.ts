@@ -1,12 +1,12 @@
 import { NextFunction, Response, Request } from 'express'
 import { verify } from 'jsonwebtoken'
-import Const from '../utils/const'
+import { UNAUTHORIZED } from '../tools/httpStatus'
 import auth from './auth'
-import ResponseError from '../errors/response-error'
+import ResponseError from '../errors/AppError'
 
 function authValidator (request: Request, response: Response, next : NextFunction) {
   const authHeader = (request.headers.authorization || '')
-  const status = Const.httpStauts.UNATHORIZED
+  const status = UNAUTHORIZED
   if (!authHeader) {
     response.status(status).send(new ResponseError('Token JWT não está presente.', status))
   }

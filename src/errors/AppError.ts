@@ -1,4 +1,4 @@
-export default class ResponseError {
+export default class AppError {
     public readonly data: string;
     public readonly status: number;
 
