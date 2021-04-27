@@ -6,7 +6,7 @@ import { BAD_REQUEST, NOT_FOUND } from '../tools/httpStatus'
 
 import UserSchema from '../schemas/UserSchema'
 import AppError from '../errors/AppError'
-import auth from '../auth/Authenticate'
+import auth from '../authenticate/Authenticate'
 
 interface IRequest {
   email: string;
