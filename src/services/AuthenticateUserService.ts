@@ -4,7 +4,7 @@ import { sign } from 'jsonwebtoken'
 
 import { BAD_REQUEST, NOT_FOUND } from '../tools/httpStatus'
 
-import UserSchema from '../schemas/user-schema'
+import UserSchema from '../schemas/UserSchema'
 import AppError from '../errors/AppError'
 import auth from '../auth/auth'
 

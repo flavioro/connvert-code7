@@ -1,6 +1,6 @@
 import { hash } from 'bcryptjs'
 
-import UserSchema from '../schemas/user-schema'
+import UserSchema from '../schemas/UserSchema'
 import AppError from '../errors/AppError'
 import { BAD_REQUEST } from '../tools/httpStatus'
 
