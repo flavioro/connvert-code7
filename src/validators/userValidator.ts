@@ -6,7 +6,7 @@ const UserValidator = yup.object().shape({
   password: yup.string().required().max(50).min(8)
 })
 
-export const loginValidator = yup.object().shape({
+export const AuthenticateValidator = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required().max(50).min(8)
 })

@@ -1,7 +1,8 @@
 import { NextFunction, Response, Request } from 'express'
 import { verify } from 'jsonwebtoken'
 import { UNAUTHORIZED } from '../tools/httpStatus'
-import auth from './auth'
+
+import auth from './Authenticate'
 import ResponseError from '../errors/AppError'
 
 function authValidator (request: Request, response: Response, next : NextFunction) {
