@@ -5,6 +5,7 @@ export interface DebtInterface extends Document{
     name:string;
     email:string;
     password: string;
+    value: Number;
 }
 const DebtSchema = new Schema({
   client_id: Number,
