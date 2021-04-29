@@ -1,4 +1,6 @@
 import fetch from 'node-fetch'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const apiUsers = process.env.API_USERS_JSON
 
