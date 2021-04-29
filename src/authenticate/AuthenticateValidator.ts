@@ -9,11 +9,12 @@ function authValidator (request: Request, response: Response, next : NextFunctio
   const authHeader = (request.headers.authorization || '')
   const status = UNAUTHORIZED
   if (!authHeader) {
+    console.log('Token JWT não está presente.')
     response.status(status).send(new ResponseError('Token JWT não está presente.', status))
   }
-
+  
   const [bearer, token] = authHeader.split(' ')
-
+  
   try {
     if (bearer.trim().toLowerCase() !== 'bearer') {
       throw new ResponseError()
@@ -21,6 +22,7 @@ function authValidator (request: Request, response: Response, next : NextFunctio
     verify(token, auth.jwt.secret)
     next()
   } catch (error) {
+    console.log('Token JWT mal formado.')
     response.status(status).send(new ResponseError('Token JWT mal formado.', status))
   }
 }
