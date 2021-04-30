@@ -11,7 +11,6 @@ const routes = Router()
 routes.post('/v1/users/auth', AuthenticateUserController.Authenticate)
 routes.post('/v1/users/create', CreateUserController.CreateUser)
 
-const authRoutes = Router()
 routes.get('/v1/clients', authValidator, apiDebts.getAll)
 routes.get('/v1/clients/:id', authValidator, apiDebts.getById)
 routes.get('/v1/clients/:id/debts', authValidator, apiDebts.getDebtsByUser)
